@@ -6,11 +6,9 @@ const {
     detailMovie
 } = require('../controller/movie')
 
-/* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
-
 
 
 router.get('/search', searchMovie)
