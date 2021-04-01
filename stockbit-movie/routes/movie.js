@@ -12,6 +12,7 @@ router.get('/', function(req, res, next) {
 });
 
 
+
 router.get('/search', searchMovie)
 router.get('/detail', detailMovie)
 

@@ -1,9 +1,7 @@
 
 
 module.exports = {
-    MappingRatting(data){
-        data.map(item=>)
-    },
+
     transformList:  (data) => {
         return  {
             Title: data.Title ? data.Title : "",
@@ -28,9 +26,17 @@ module.exports = {
             Country: data.Country ? data.Country : "",
             Awards: data.Awards ? data.Awards : "",
             Poster: data.Poster ? data.Poster : "",
-            Ratings: data.Ratings ? this.MappingRatting(data.Ratings) : [],
+            Ratings: data.Ratings ? data.Ratings : [],
             Metascore: data.Metascore ? data.Metascore : "",
-            Poster: data.Poster ? data.Poster : ""
+            imdbRating: data.imdbRating ? data.imdbRating : "",
+            imdbVotes: data.imdbVotes ? data.imdbVotes : "",
+            imdbID: data.imdbID ? data.imdbID : "",
+            Type: data.Type ? data.Type : "",
+            DVD: data.DVD ? data.DVD : "",
+            BoxOffice: data.BoxOffice ? data.BoxOffice : "",
+            Production: data.Production ? data.Production : "",
+            Website: data.Website ? data.Website : "",
+            Response: data.Response ? data.Response : ""
         }
     }
 }

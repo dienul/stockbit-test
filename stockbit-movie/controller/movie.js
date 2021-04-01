@@ -1,25 +1,50 @@
 const {
-    search, 
+    search,
     detail
 } = require('../service/movie')
+
+const {
+    success,successPagination
+} = require('../resp/resp_success')
+
+const {
+    errorResp
+} = require('../resp/resp_error')
+
 module.exports = {
-    searchMovie : async (req,res)=>{
-        console.log('--- searchMovie ---')
+    searchMovie: async (req, res) => {
+        
         try {
-            const resp = await search(req.query)
-            res.json(resp)
+            if(req.query.s){
+                console.log('--- searchMovie ---')
+                const resp = await search(req.query)                
+                res.json(successPagination(resp))
+
+            }else{
+                res.status(400).json(errorResp([], "Query param 's' is required" ))
+                return
+            }
+
         } catch (error) {
-            
+            res.status(400).json(errorResp([], "Data not found"))
         }
     },
 
-    detailMovie : async (req,res)=>{
-        console.log('--- detail movie ---')
+    detailMovie: async (req, res) => {
+     
         try {
-            const resp = await detail(req.query)
-            res.json(resp)
-        } catch (error) {
+            if(req.query.i){
+                console.log('--- detail movie ---')
+                const resp = await detail(req.query)
+                res.json(success(resp))
+
+            }else{
+                res.status(400).json(errorResp([], "Query param 'i' is required" ))
+                return
+            }
             
+        } catch (error) {
+            res.status(400).json(errorResp({}, "Data not found"))
         }
     }
 }

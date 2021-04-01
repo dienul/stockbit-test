@@ -1,12 +1,29 @@
-const mysql = require('mysql')
+require('dotenv').config();
+const {
+  DB_HOST = '',
+  DB_USER = '',
+  DB_PASS = '',
+  DB_NAME = '',
+} = process.env;
 
-const connection = mysql.createConnection({
-    host : "45.127.133.91",
-    user : "monty",
-    password : "some_pass",
-    database : "stockbit_movie",
-})
+const knex = require('knex')({
+  client: 'mysql',
+  connection: {
+    host: DB_HOST,
+    user: DB_USER,
+    password: DB_PASS,
+    database: DB_NAME
+  }
+});
 
 module.exports = {
-    connection,
+  insert: async (data) => {
+    try {
+      return await knex('tb_log').insert(data);
+    } catch (e) {
+      console.log("SQl:", e)
+      throw new Error(e)
+    }
+
+  }
 }
