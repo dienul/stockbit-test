@@ -8,7 +8,7 @@ const {
 } = require('../resp/resp_success')
 
 const {
-    errorResp
+    errorResp,errorPagination
 } = require('../resp/resp_error')
 
 module.exports = {
@@ -21,12 +21,12 @@ module.exports = {
                 res.json(successPagination(resp))
 
             }else{
-                res.status(400).json(errorResp([], "Query param 's' is required" ))
+                res.status(400).json(errorPagination([], "Query param 's' is required" ))
                 return
             }
 
         } catch (error) {
-            res.status(400).json(errorResp([], "Data not found"))
+            res.status(400).json(errorPagination([], "Data not found"))
         }
     },
 

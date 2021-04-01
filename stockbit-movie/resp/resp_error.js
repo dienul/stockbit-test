@@ -11,4 +11,13 @@ module.exports = {
         }
     },
 
+    errorPagination:  (data,error) => {
+        return  {
+            data:data,
+            status_code:400,
+            status:"bad request", 
+            pagination:{},
+            error:error
+        }
+    },
 }
