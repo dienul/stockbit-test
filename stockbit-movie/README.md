@@ -40,3 +40,44 @@ Query
 | plot      	| no        	     |   short, full                   	| -                            |
 
 ``` http://localhost:3000/movie/detail/?i=tt5916948 ```
+
+Response
+```
+success :
+
+{
+    "data": [
+        {
+            "Title": "Banat Kharqat (Banat Superman)",
+            "Year": "2016",
+            "imdbID": "tt10522084",
+            "Type": "series",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BZjIxMDliNmEtMTA0NS00MDAxLTgzNzgtYjc4YjI3YTFkZTAxXkEyXkFqcGdeQXVyMjQ1MDI1MzU@._V1_SX300.jpg"
+        },
+        {
+            "Title": "Goku vs Superman: The Animated Movie",
+            "Year": "2016–",
+            "imdbID": "tt6255046",
+            "Type": "series",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BYWU4NTc0MDctYzI0ZC00NjFhLWE4OGYtZGFkZDRhYmQ0OTA2L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjgzMzYzMjA@._V1_SX300.jpg"
+        },
+        {
+            "Title": "Hot Wheels All Access: Batman v. Superman",
+            "Year": "2016",
+            "imdbID": "tt6684296",
+            "Type": "series",
+            "Poster": "N/A"
+        }
+    ],
+    "status_code": 200,
+    "status": "success",
+    "pagination": {
+        "page": 1,
+        "total_data": 3,
+        "total_page": 1
+    },
+    "error": ""
+}
+
+
+```
