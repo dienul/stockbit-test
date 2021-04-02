@@ -25,26 +25,9 @@ Query
 
 ``` http://localhost:3000/movie/search?page=1&y=2016&plot=short&s=batman ```
 
-#### Detail
-
-    http://localhost:3000/movie/detail
-
-Query
-
-| **parameter** 	|       **required**      |  **description**  |  **notes**   |
-|---------------|--------------------|----------------------|----------------------|
-| i      	    | yes        	     |  A valid IMDb ID (e.g. tt1285016)| "i" must require if "t" optional |
-| t      	    | yes        	     |   Movie title to search for.    	| "t" must require if "i" optional |
-| type      	| no        	     |   Type of result to return.   	| e.g. movie, series, episode  |
-| y      	    | no        	     |   Year of release.             	|-                             |
-| plot      	| no        	     |   short, full                   	| -                            |
-
-``` http://localhost:3000/movie/detail/?i=tt5916948 ```
-
 Response
-```
+```json
 success :
-
 {
     "data": [
         {
@@ -79,5 +62,132 @@ success :
     "error": ""
 }
 
+error:
+1. param "s" is null
+{
+    "data": [],
+    "status_code": 400,
+    "status": "bad request",
+    "pagination": {},
+    "error": "Query param 's' is required"
+}
+
+2. data not found
+{
+    "data": [],
+    "status_code": 400,
+    "status": "bad request",
+    "pagination": {},
+    "error": "Data not found"
+}
+
+```
+
+
+#### Detail
+
+    http://localhost:3000/movie/detail
+
+Query
+
+| **parameter** 	|       **required**      |  **description**  |  **notes**   |
+|---------------|--------------------|----------------------|----------------------|
+| i      	    | yes        	     |  A valid IMDb ID (e.g. tt1285016)| "i" must require if "t" optional |
+| t      	    | yes        	     |   Movie title to search for.    	| "t" must require if "i" optional |
+| type      	| no        	     |   Type of result to return.   	| e.g. movie, series, episode  |
+| y      	    | no        	     |   Year of release.             	|-                             |
+| plot      	| no        	     |   short, full                   	| -                            |
+
+``` http://localhost:3000/movie/detail/?i=tt5916948 ```
+
+Response
+```json
+success :
+{
+    "data": {
+        "Title": "Batman",
+        "Year": "1989",
+        "Rated": "PG-13",
+        "Released": "23 Jun 1989",
+        "Genre": "Action, Adventure",
+        "Director": "Tim Burton",
+        "Writer": "Bob Kane (Batman characters), Sam Hamm (story), Sam Hamm (screenplay), Warren Skaaren (screenplay)",
+        "Actors": "Michael Keaton, Jack Nicholson, Kim Basinger, Robert Wuhl",
+        "Plot": "The Dark Knight of Gotham City begins his war on crime with his first major enemy being Jack Napier, a criminal who becomes the clownishly homicidal Joker.",
+        "Language": "English, French, Spanish",
+        "Country": "USA, UK",
+        "Awards": "Won 1 Oscar. Another 7 wins & 26 nominations.",
+        "Poster": "https://m.media-amazon.com/images/M/MV5BMTYwNjAyODIyMF5BMl5BanBnXkFtZTYwNDMwMDk2._V1_SX300.jpg",
+        "Ratings": [
+            {
+                "Source": "Internet Movie Database",
+                "Value": "7.5/10"
+            },
+            {
+                "Source": "Rotten Tomatoes",
+                "Value": "71%"
+            },
+            {
+                "Source": "Metacritic",
+                "Value": "69/100"
+            }
+        ],
+        "Metascore": "69",
+        "imdbRating": "7.5",
+        "imdbVotes": "340,277",
+        "imdbID": "tt0096895",
+        "Type": "movie",
+        "DVD": "24 Jul 2014",
+        "BoxOffice": "$251,348,343",
+        "Production": "Warner Brothers, Guber-Peters Company, PolyGram Filmed Entertainment",
+        "Website": "N/A",
+        "Response": "True"
+    },
+    "status_code": 200,
+    "status": "success",
+    "error": ""
+}
+
+error:
+1. param "t" or "i" is null
+{
+    "data": [],
+    "status_code": 400,
+    "status": "bad request",
+    "error": "Query param 'i' or 't is required"
+}
+
+2.data not found
+{
+    "data": {
+        "Title": "",
+        "Year": "",
+        "Rated": "",
+        "Released": "",
+        "Genre": "",
+        "Director": "",
+        "Writer": "",
+        "Actors": "",
+        "Plot": "",
+        "Language": "",
+        "Country": "",
+        "Awards": "",
+        "Poster": "",
+        "Ratings": [],
+        "Metascore": "",
+        "imdbRating": "",
+        "imdbVotes": "",
+        "imdbID": "",
+        "Type": "",
+        "DVD": "",
+        "BoxOffice": "",
+        "Production": "",
+        "Website": "",
+        "Response": "False"
+    },
+    "status_code": 200,
+    "status": "success",
+    "error": ""
+}
 
 ```
