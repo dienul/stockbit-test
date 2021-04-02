@@ -3,6 +3,13 @@
 - `npm install`
 - Fill the .env from .env.template 
 - `npm run dev`
+- npm run dev plus migration create table to mysql
+- `npm run test`
+
+----------
+### My application has been deployed, this is the url to try
+
+```http://45.127.133.91:3000/movie/search?s=Batman&page=1```
 
 ----------
 
