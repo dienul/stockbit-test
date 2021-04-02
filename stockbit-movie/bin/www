@@ -8,6 +8,7 @@ var app = require('../app');
 var debug = require('debug')('stockbit-movie:server');
 var http = require('http');
 
+const { migrate } = require("../models/index")
 /**
  * Get port from environment and store in Express.
  */
@@ -28,7 +29,7 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-
+MigrateIfNotExist()
 /**
  * Normalize a port into a number, string, or false.
  */
@@ -88,4 +89,9 @@ function onListening() {
     : 'port ' + addr.port;
   console.log(bind)
   debug('Listening on ' + bind);
+}
+
+async function MigrateIfNotExist() {
+  console.log("Migration table if not exist started")
+  await migrate()
 }

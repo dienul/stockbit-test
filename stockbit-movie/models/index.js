@@ -17,6 +17,19 @@ const knex = require('knex')({
 });
 
 module.exports = {
+  migrate: async () => {
+    var check_table = await knex.schema.hasTable("tb_log").then(async function (exists) {
+      if (!exists) {
+        var createTable = await knex.schema.createTable("tb_log", async function (t) {
+          t.string('log_id', 255);
+          t.text('log_resp');
+          t.text('log_req');
+          t.timestamp('created_at');
+
+        });
+      }
+    })
+  },
   insert: async (data) => {
     try {
       return await knex('tb_log').insert(data);
