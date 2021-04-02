@@ -33,8 +33,8 @@ Query
 
 | **parameter** 	|       **required**      |  **description**  |  **notes**   |
 |---------------|--------------------|----------------------|----------------------|
-| i      	    | yes        	     |  A valid IMDb ID (e.g. tt1285016)| i must require if t optional |
-| t      	    | yes        	     |   Movie title to search for.    	| t must require if i optional |
+| i      	    | yes        	     |  A valid IMDb ID (e.g. tt1285016)| "i" must require if "t" optional |
+| t      	    | yes        	     |   Movie title to search for.    	| "t" must require if "i" optional |
 | type      	| no        	     |   Type of result to return.   	| e.g. movie, series, episode  |
 | y      	    | no        	     |   Year of release.             	|-                             |
 | plot      	| no        	     |   short, full                   	| -                            |
