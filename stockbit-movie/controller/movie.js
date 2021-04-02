@@ -33,13 +33,13 @@ module.exports = {
     detailMovie: async (req, res) => {
      
         try {
-            if(req.query.i){
+            if(req.query.i || req.query.t){
                 console.log('--- detail movie ---')
                 const resp = await detail(req.query)
                 res.json(success(resp))
 
             }else{
-                res.status(400).json(errorResp([], "Query param 'i' is required" ))
+                res.status(400).json(errorResp([], "Query param 'i' or 't is required" ))
                 return
             }
             
