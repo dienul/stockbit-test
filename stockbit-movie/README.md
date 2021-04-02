@@ -98,7 +98,7 @@ Query
 | y      	    | no        	     |   Year of release.             	|-                             |
 | plot      	| no        	     |   short, full                   	| -                            |
 
-``` http://localhost:3000/movie/detail/?i=tt5916948 ```
+``` http://localhost:3000/movie/detail/?i=tt0096895 ```
 
 Response
 ```json
