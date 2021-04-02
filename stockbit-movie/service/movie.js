@@ -56,11 +56,12 @@ module.exports = {
                 throw new Error("Data not found! ")
             }
 
-            await insertDB(url, res)
+     
             return {
                 data: resp,
                 pagination: pagination
             }
+            
         } catch (e) {
             throw new Error(e)
         }
