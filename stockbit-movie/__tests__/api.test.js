@@ -31,7 +31,6 @@ describe('TEST API /search', () => {
 describe('TEST API /detail', () => {
   it('It should be return 200: success',async (done) => {
     const response = await request.get('/movie/detail?i=tt2975590')
-    // console.log('response >> ',response.body)
     expect(response.statusCode).toBe(200);
     expect(response.body.data.Response).toBe("True");
     done()   

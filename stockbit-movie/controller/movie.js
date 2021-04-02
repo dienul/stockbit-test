@@ -16,7 +16,6 @@ module.exports = {
         
         try {
             if(req.query.s){
-                console.log('--- searchMovie ---')
                 const resp = await search(req.query)                
                 res.json(successPagination(resp))
 
@@ -34,7 +33,6 @@ module.exports = {
      
         try {
             if(req.query.i || req.query.t){
-                console.log('--- detail movie ---')
                 const resp = await detail(req.query)
                 res.json(success(resp))
 
